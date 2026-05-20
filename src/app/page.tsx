@@ -1,3 +1,5 @@
+import { FlowSteps } from "@/components/FlowSteps";
+
 const capabilities = [
   {
     code: "[CAP_01]",
@@ -109,18 +111,24 @@ const toolkit: { label: string; items: ToolItem[] }[] = [
       { name: "Le Wagon", icon: "/LEWAGON.svg" },
       { name: "IIBA", icon: "/IIBA.svg" },
       { name: "PRINCE2", icon: "/PRINCE2.svg" },
-      { name: "Scrum", icon: "/SCRUM.svg" },
+      { name: "Scrum", icon: "/SCRUMINC.svg" },
     ],
   },
   {
     label: "M365",
     items: [
-      { name: "Office 365", icon: "/O365.svg" },
       { name: "Excel", icon: "/EXCEL.svg" },
       { name: "Visio", icon: "/VISIO.svg" },
       { name: "SharePoint", icon: "/SHAREPOINT.svg" },
       { name: "Power BI", icon: "/POWERBI.svg" },
       { name: "Power Automate", icon: "/POWERAUTOMATE.svg" },
+    ],
+  },
+  {
+    label: "Agile",
+    items: [
+      { name: "Confluence", icon: "/CONFLUENCE.svg" },
+      { name: "Jira", icon: "/JIRA.svg" },
     ],
   },
   {
@@ -136,13 +144,42 @@ const toolkit: { label: string; items: ToolItem[] }[] = [
       { name: "Claude", icon: "/CLAUDE.svg" },
       { name: "ChatGPT", icon: "/CHATGPT.svg" },
       { name: "Claude Code", icon: "/CLAUDECODE.svg" },
-      { name: "Lovable", icon: "/LOVABLE.svg" },
       { name: "Github", icon: "/GITHUB.svg" },
       { name: "Vercel", icon: "/VERCEL.svg" },
-      { name: "Firebase", icon: "/FIREBASE.svg" },
     ],
   },
 ];
+
+function ToolGroup({ group }: { group: { label: string; items: ToolItem[] } }) {
+  return (
+    <div>
+      <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted block mb-4">
+        {group.label}
+      </span>
+      <ul className="space-y-2">
+        {group.items.map((item) => (
+          <li
+            key={item.name}
+            className="group flex items-center gap-2.5 border border-rule px-3 py-2 bg-paper hover:bg-paper-2 hover:scale-105 transition-all duration-300 ease-out"
+          >
+            <span className="flex items-center justify-center h-6 w-6 shrink-0 overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={item.icon}
+                alt={item.name}
+                loading="lazy"
+                className="h-5 w-5 object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300"
+              />
+            </span>
+            <span className="font-mono text-[11px] tracking-[0.04em] text-muted leading-tight">
+              {item.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -297,7 +334,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="lg:col-span-7">
-                <div className="divide-y divide-rule border-t border-rule">
+                <div className="divide-y divide-rule">
                   {principles.map((p, i) => (
                     <div key={p.title} className="py-8 grid grid-cols-12 gap-6">
                       <span className="col-span-2 md:col-span-1 font-mono text-sm text-muted pt-1">
@@ -335,47 +372,47 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="space-y-20">
+            <div className="space-y-8">
               {cases.map((c, i) => (
-                <article
-                  key={c.ref}
-                  className="grid lg:grid-cols-12 gap-12 pt-12 border-t border-rule first:border-t-0 first:pt-0"
-                >
-                  <div className="lg:col-span-4">
-                    <span className="font-mono text-[11px] text-muted block mb-6">
+                <article key={c.ref} className="border border-rule bg-paper">
+                  {/* Header: ref + title */}
+                  <div className="px-6 pt-6 pb-2 lg:px-8 lg:pt-7">
+                    <span className="font-mono text-[11px] text-muted block mb-2">
                       {String(i + 1).padStart(2, "0")} / {c.ref}
                     </span>
-                    <h3 className="text-[20px] font-semibold tracking-[-0.01em] mb-4">
+                    <h3 className="text-[17px] font-semibold tracking-[-0.01em] leading-snug">
                       {c.name}
                     </h3>
                   </div>
-                  <div className="lg:col-span-8 lg:pt-1">
-                    <div className="grid gap-8 border-l border-rule pl-8">
-                      <div>
-                        <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
-                          Situation
-                        </span>
-                        <p className="text-[15px] text-body leading-[1.55] text-pretty max-w-[64ch]">
-                          {c.situation}
-                        </p>
-                      </div>
-                      <div>
-                        <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
-                          Contribution
-                        </span>
-                        <p className="text-[15px] text-body leading-[1.55] text-pretty max-w-[64ch]">
-                          {c.action}
-                        </p>
-                      </div>
-                      <div>
-                        <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
-                          Outcome
-                        </span>
-                        <p className="text-[15px] text-body leading-[1.55] text-pretty max-w-[64ch]">
-                          {c.outcome}
-                        </p>
-                      </div>
+                  {/* Three columns — no vertical dividers */}
+                  <div className="grid grid-cols-1 lg:grid-cols-3">
+                    <div className="px-6 py-5 lg:px-8 lg:py-6">
+                      <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
+                        Situation
+                      </span>
+                      <p className="text-[13px] text-body leading-[1.55]">{c.situation}</p>
                     </div>
+                    <div className="px-6 py-5 lg:px-8 lg:py-6 border-t border-rule lg:border-t-0">
+                      <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
+                        Contribution
+                      </span>
+                      <p className="text-[13px] text-body leading-[1.55]">{c.action}</p>
+                    </div>
+                    <div className="px-6 py-5 lg:px-8 lg:py-6 border-t border-rule lg:border-t-0">
+                      <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
+                        Outcome
+                      </span>
+                      <p className="text-[13px] text-body leading-[1.55]">{c.outcome}</p>
+                    </div>
+                  </div>
+                  {/* Footer */}
+                  <div className="px-6 pb-6 lg:px-8 lg:pb-7">
+                    <button
+                      disabled
+                      className="font-mono text-[11px] uppercase tracking-[0.16em] border border-rule text-muted px-4 py-2 opacity-50 cursor-not-allowed"
+                    >
+                      Learn more (Coming soon)
+                    </button>
                   </div>
                 </article>
               ))}
@@ -386,82 +423,37 @@ export default function Home() {
         {/* 05 Methods & Toolkit */}
         <section id="toolkit" className="py-24 border-b border-rule">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid lg:grid-cols-12 gap-12">
-              <div className="lg:col-span-4">
-                <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
-                  05 / Methods &amp; Toolkit
-                </span>
-                <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium mt-6 text-balance leading-[1.12] tracking-[-0.015em]">
-                  Credentials and toolset behind the work.
-                </h2>
-              </div>
-              <div className="lg:col-span-8 space-y-12">
-                {toolkit.map((group) => (
-                  <div
-                    key={group.label}
-                    className="grid grid-cols-12 gap-6 pt-6 border-t border-rule"
-                  >
-                    <div className="col-span-12 md:col-span-3">
-                      <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
-                        {group.label}
-                      </span>
-                    </div>
-                    <ul className="col-span-12 md:col-span-9 grid grid-cols-2 sm:grid-cols-3 gap-3">
-                      {group.items.map((item) => (
-                        <li
-                          key={item.name}
-                          className="group flex items-center gap-2.5 text-left border border-rule px-3 py-2 rounded-[2px] bg-paper hover:bg-paper-2 hover:scale-105 transition-all duration-300 ease-out"
-                        >
-                          <span className="flex items-center justify-center h-6 w-6 shrink-0 overflow-hidden">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                              src={item.icon}
-                              alt={item.name}
-                              loading="lazy"
-                              className="h-5 w-5 object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300"
-                            />
-                          </span>
-                          <span className="text-[13px] font-medium text-body leading-tight">
-                            {item.name}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
+            <div>
+              <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
+                05 / Methods &amp; Toolkit
+              </span>
+              <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium mt-4 text-balance leading-[1.12] tracking-[-0.015em] max-w-[44ch]">
+                Credentials and toolset behind the work.
+              </h2>
             </div>
 
-            <div className="mt-20 pt-12 border-t border-rule">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 mt-10">
+              <ToolGroup group={toolkit[0]} />
+              <ToolGroup group={toolkit[1]} />
+              <div className="flex flex-col justify-between">
+                <ToolGroup group={toolkit[2]} />
+                <ToolGroup group={toolkit[3]} />
+              </div>
+              <ToolGroup group={toolkit[4]} />
+            </div>
+
+            <div className="mt-20">
               <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
                 Built with this stack
               </span>
-              <p className="text-[15px] text-muted leading-relaxed max-w-[60ch] mt-4 mb-10">
+              <p className="text-[15px] text-muted leading-relaxed max-w-[80ch] mt-4 mb-10">
                 The AI category above is an experimental toolset I rely on
                 across my personal projects — pairing reasoning models, coding
                 assistants, and rapid deployment platforms to move from idea
                 to live product in hours rather than weeks. This very website
                 was designed, built, and deployed using that exact stack.
               </p>
-              <figure>
-                <a
-                  href="/How I built this page with AI.png"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/How I built this page with AI.png"
-                    alt="Diagram showing how this page was built using AI tools"
-                    loading="lazy"
-                    className="w-full h-auto block"
-                  />
-                </a>
-                <figcaption className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
-                  Custom flow built in Figma
-                </figcaption>
-              </figure>
+              <FlowSteps />
             </div>
           </div>
         </section>
