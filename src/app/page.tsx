@@ -146,9 +146,9 @@ const toolkit: { label: string; items: ToolItem[] }[] = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-canvas text-ink font-sans selection:bg-zinc-200">
+    <div className="min-h-screen bg-paper text-ink font-serif">
       {/* Header */}
-      <header className="border-b border-rule sticky top-0 z-40 bg-canvas/85 backdrop-blur">
+      <header className="border-b border-rule sticky top-0 z-40 bg-paper/85 backdrop-blur">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <a
             href="#top"
@@ -192,7 +192,7 @@ export default function Home() {
             <span className="font-mono text-[11px] mb-10 block text-muted uppercase tracking-[0.18em]">
               01 / Positioning
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-[68px] font-medium leading-[1.05] tracking-[-0.02em] text-balance mb-10">
+            <h1 className="text-[clamp(34px,5vw,64px)] font-medium leading-[1.05] tracking-[-0.02em] text-balance mb-10">
               I help enterprise IT teams turn complex transformation work into
               clear processes, tools, and decisions.
             </h1>
@@ -202,7 +202,7 @@ export default function Home() {
             </p>
             <a
               href="#contact"
-              className="bg-accent text-canvas py-3 px-5 ring-1 ring-accent rounded-sm text-sm font-medium transition-transform active:scale-95 inline-flex items-center gap-3"
+              className="bg-ink text-paper py-3 px-[18px] border border-ink text-sm font-medium hover:opacity-90 active:scale-95 transition-opacity inline-flex items-center gap-3"
             >
               Get in touch about a mission
               <span aria-hidden>→</span>
@@ -213,22 +213,18 @@ export default function Home() {
         {/* 02 What I do — Capabilities */}
         <section id="work" className="py-24 border-b border-rule">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid lg:grid-cols-12 gap-12 mb-16">
-              <div className="lg:col-span-4">
-                <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
-                  02 / What I do
-                </span>
-              </div>
-              <div className="lg:col-span-8">
-                <h2 className="text-2xl md:text-3xl font-medium text-balance leading-snug">
-                  Four kinds of work, applied together across a transformation.
-                </h2>
-                <p className="mt-4 text-muted max-w-[60ch]">
-                  The differentiator is the combination. Model, Visualize,
-                  Document, Design &amp; Enable — applied end-to-end inside a
-                  single engagement, not handed off between specialists.
-                </p>
-              </div>
+            <div className="mb-16">
+              <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
+                02 / What I do
+              </span>
+              <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium text-balance leading-[1.12] tracking-[-0.015em] mt-4 max-w-[44ch]">
+                Four kinds of work, applied together across a transformation.
+              </h2>
+              <p className="mt-4 text-muted max-w-[60ch]">
+                The differentiator is the combination. Model, Visualize,
+                Document, Design &amp; Enable — applied end-to-end inside a
+                single engagement, not handed off between specialists.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 ring-1 ring-rule">
@@ -236,7 +232,7 @@ export default function Home() {
                 <div
                   key={c.code}
                   className={[
-                    "p-8 flex flex-col gap-8 bg-canvas",
+                    "p-8 flex flex-col gap-8 bg-paper",
                     i < capabilities.length - 1 ? "lg:border-r border-rule" : "",
                     i < 2 ? "md:border-b lg:border-b-0 border-rule" : "",
                     i % 2 === 0 ? "md:border-r border-rule" : "",
@@ -256,7 +252,7 @@ export default function Home() {
                     </h3>
                     <p className="text-sm text-muted">{c.lead}</p>
                   </div>
-                  <ul className="mt-auto space-y-2 pt-6 border-t border-rule">
+                  <ul className="mt-auto min-h-[8.5rem] space-y-2 pt-6 border-t border-rule">
                     {c.items.map((it) => (
                       <li
                         key={it}
@@ -276,14 +272,14 @@ export default function Home() {
         </section>
 
         {/* 03 How I work — Principles */}
-        <section id="approach" className="py-24 bg-soft border-b border-rule">
+        <section id="approach" className="py-24 bg-paper-2 border-b border-rule">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-12 gap-12">
               <div className="lg:col-span-5">
                 <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
                   03 / How I work
                 </span>
-                <h2 className="text-3xl font-medium mt-6 text-balance leading-snug">
+                <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium mt-6 text-balance leading-[1.12] tracking-[-0.015em]">
                   Depth inside one complex environment.
                 </h2>
                 <div className="mt-8 space-y-5 text-muted leading-relaxed">
@@ -311,7 +307,7 @@ export default function Home() {
                         <h4 className="font-medium mb-3 text-lg tracking-tight">
                           {p.title}
                         </h4>
-                        <p className="text-[15px] text-muted text-pretty max-w-[64ch] leading-relaxed">
+                        <p className="text-[15px] text-body text-pretty max-w-[64ch] leading-[1.55]">
                           {p.body}
                         </p>
                       </div>
@@ -326,21 +322,17 @@ export default function Home() {
         {/* 04 Selected Work */}
         <section className="py-24 border-b border-rule">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid lg:grid-cols-12 gap-12 mb-20">
-              <div className="lg:col-span-4">
-                <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
-                  04 / Selected Work
-                </span>
-              </div>
-              <div className="lg:col-span-8">
-                <h2 className="text-3xl font-medium leading-snug text-balance mb-4">
-                  Selected examples from six years embedded in a large European
-                  enterprise IT environment.
-                </h2>
-                <p className="font-mono text-[11px] text-muted uppercase tracking-[0.14em]">
-                  Described at a high level to respect client confidentiality.
-                </p>
-              </div>
+            <div className="mb-20">
+              <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
+                04 / Selected Work
+              </span>
+              <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium leading-[1.12] tracking-[-0.015em] text-balance mt-4 mb-3 max-w-[44ch]">
+                Selected examples from six years embedded in a large European
+                enterprise IT environment.
+              </h2>
+              <p className="font-mono text-[11px] text-muted uppercase tracking-[0.14em]">
+                Described at a high level to respect client confidentiality.
+              </p>
             </div>
 
             <div className="space-y-20">
@@ -353,7 +345,7 @@ export default function Home() {
                     <span className="font-mono text-[11px] text-muted block mb-6">
                       {String(i + 1).padStart(2, "0")} / {c.ref}
                     </span>
-                    <h3 className="text-2xl font-medium tracking-tight mb-4">
+                    <h3 className="text-[20px] font-semibold tracking-[-0.01em] mb-4">
                       {c.name}
                     </h3>
                   </div>
@@ -363,7 +355,7 @@ export default function Home() {
                         <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
                           Situation
                         </span>
-                        <p className="text-[15px] text-ink/85 leading-relaxed text-pretty max-w-[64ch]">
+                        <p className="text-[15px] text-body leading-[1.55] text-pretty max-w-[64ch]">
                           {c.situation}
                         </p>
                       </div>
@@ -371,7 +363,7 @@ export default function Home() {
                         <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
                           Contribution
                         </span>
-                        <p className="text-[15px] text-ink/85 leading-relaxed text-pretty max-w-[64ch]">
+                        <p className="text-[15px] text-body leading-[1.55] text-pretty max-w-[64ch]">
                           {c.action}
                         </p>
                       </div>
@@ -379,7 +371,7 @@ export default function Home() {
                         <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
                           Outcome
                         </span>
-                        <p className="text-[15px] text-ink/85 leading-relaxed text-pretty max-w-[64ch]">
+                        <p className="text-[15px] text-body leading-[1.55] text-pretty max-w-[64ch]">
                           {c.outcome}
                         </p>
                       </div>
@@ -399,7 +391,7 @@ export default function Home() {
                 <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
                   05 / Methods &amp; Toolkit
                 </span>
-                <h2 className="text-3xl font-medium mt-6 text-balance leading-snug">
+                <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium mt-6 text-balance leading-[1.12] tracking-[-0.015em]">
                   Credentials and toolset behind the work.
                 </h2>
               </div>
@@ -414,13 +406,13 @@ export default function Home() {
                         {group.label}
                       </span>
                     </div>
-                    <ul className="col-span-12 md:col-span-9 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                    <ul className="col-span-12 md:col-span-9 grid grid-cols-2 sm:grid-cols-3 gap-3">
                       {group.items.map((item) => (
                         <li
                           key={item.name}
-                          className="group flex items-center gap-2.5 text-left border border-rule px-2.5 py-2 rounded-sm bg-canvas hover:bg-soft hover:scale-105 transition-all duration-300 ease-out"
+                          className="group flex items-center gap-2.5 text-left border border-rule px-3 py-2 rounded-[2px] bg-paper hover:bg-paper-2 hover:scale-105 transition-all duration-300 ease-out"
                         >
-                          <span className="flex items-center justify-center h-6 w-6 shrink-0 rounded-[3px] overflow-hidden">
+                          <span className="flex items-center justify-center h-6 w-6 shrink-0 overflow-hidden">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                               src={item.icon}
@@ -429,7 +421,7 @@ export default function Home() {
                               className="h-5 w-5 object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300"
                             />
                           </span>
-                          <span className="text-[13px] font-medium text-ink/85 leading-tight">
+                          <span className="text-[13px] font-medium text-body leading-tight">
                             {item.name}
                           </span>
                         </li>
@@ -440,50 +432,46 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-20 pt-12 border-t border-rule grid lg:grid-cols-12 gap-12">
-              <div className="lg:col-span-4">
-                <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
-                  Built with this stack
-                </span>
-              </div>
-              <div className="lg:col-span-8">
-                <p className="text-[15px] text-muted leading-relaxed max-w-[64ch] mb-10">
-                  The AI category above is an experimental toolset I rely on
-                  across my personal projects — pairing reasoning models, coding
-                  assistants, and rapid deployment platforms to move from idea
-                  to live product in hours rather than weeks. This very website
-                  was designed, built, and deployed using that exact stack.
-                </p>
-                <figure>
-                  <a
-                    href="/How I built this page with AI.png"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/How I built this page with AI.png"
-                      alt="Diagram showing how this page was built using AI tools"
-                      loading="lazy"
-                      className="w-full h-auto block"
-                    />
-                  </a>
-                  <figcaption className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
-                    Flow built by myself in Figma
-                  </figcaption>
-                </figure>
-              </div>
+            <div className="mt-20 pt-12 border-t border-rule">
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
+                Built with this stack
+              </span>
+              <p className="text-[15px] text-muted leading-relaxed max-w-[60ch] mt-4 mb-10">
+                The AI category above is an experimental toolset I rely on
+                across my personal projects — pairing reasoning models, coding
+                assistants, and rapid deployment platforms to move from idea
+                to live product in hours rather than weeks. This very website
+                was designed, built, and deployed using that exact stack.
+              </p>
+              <figure>
+                <a
+                  href="/How I built this page with AI.png"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/How I built this page with AI.png"
+                    alt="Diagram showing how this page was built using AI tools"
+                    loading="lazy"
+                    className="w-full h-auto block"
+                  />
+                </a>
+                <figcaption className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
+                  Custom flow built in Figma
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>
 
         {/* 06 Contact */}
-        <section id="contact" className="py-24 lg:py-40 bg-accent text-canvas">
+        <section id="contact" className="py-24 lg:py-40 bg-ink text-paper">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-12 gap-12">
               <div className="lg:col-span-4">
-                <span className="font-mono text-[11px] text-canvas/50 uppercase tracking-[0.18em]">
+                <span className="font-mono text-[11px] text-paper/55 uppercase tracking-[0.18em]">
                   06 / Contact
                 </span>
               </div>
@@ -493,12 +481,12 @@ export default function Home() {
                   take on focused engagements when the fit is right.
                 </p>
 
-                <div className="grid sm:grid-cols-2 gap-px bg-canvas/15 border border-canvas/15">
+                <div className="grid sm:grid-cols-2 gap-px bg-paper/15 border border-paper/30">
                   <a
                     href="mailto:arnaud.fiora@gmail.com"
-                    className="bg-accent p-8 group block hover:bg-canvas/5 transition-colors"
+                    className="bg-ink p-8 group block hover:bg-paper/5 transition-colors"
                   >
-                    <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-canvas/50 block mb-3">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-paper/55 block mb-3">
                       Get in touch about a mission
                     </span>
                     <span className="text-lg font-medium inline-flex items-center gap-3">
@@ -515,9 +503,9 @@ export default function Home() {
                     href="https://linkedin.com/in/arnaudfiora"
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-accent p-8 group block hover:bg-canvas/5 transition-colors"
+                    className="bg-ink p-8 group block hover:bg-paper/5 transition-colors"
                   >
-                    <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-canvas/50 block mb-3">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-paper/55 block mb-3">
                       LinkedIn
                     </span>
                     <span className="text-lg font-medium inline-flex items-center gap-3">
@@ -540,7 +528,7 @@ export default function Home() {
       <footer className="py-10 border-t border-rule">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
-            Arnaud Fiora · Independent Business Analyst · © 2026
+            Arnaud Fiora · Freelance Business Analyst · © 2026
           </span>
           <nav className="flex gap-6 font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
             <a

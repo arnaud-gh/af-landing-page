@@ -5,51 +5,73 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  /* Typefaces */
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --font-sans: "Source Serif 4", Georgia, serif;
 
-  --color-canvas: var(--canvas);
-  --color-ink: var(--ink);
-  --color-accent: var(--accent);
-  --color-rule: var(--rule);
-  --color-muted: var(--muted);
-  --color-soft: var(--soft);
+  /* Design system color tokens */
+  --color-paper:       var(--paper);
+  --color-paper-2:     var(--paper-2);
+  --color-surface:     var(--paper-2);
+  --color-ink:         var(--ink);
+  --color-body:        var(--body-text);
+  --color-muted:       var(--muted);
+  --color-rule:        var(--rule);
+  --color-rule-strong: var(--rule-strong);
 
-  --color-background: var(--canvas);
-  --color-foreground: var(--ink);
-  --color-primary: var(--accent);
-  --color-primary-foreground: var(--canvas);
-  --color-secondary: var(--soft);
+  /* shadcn/ui aliases */
+  --color-background:          var(--paper);
+  --color-foreground:          var(--ink);
+  --color-primary:             var(--ink);
+  --color-primary-foreground:  var(--paper);
+  --color-secondary:           var(--paper-2);
   --color-secondary-foreground: var(--ink);
-  --color-muted-foreground: var(--muted);
-  --color-border: var(--rule);
-  --color-ring: var(--accent);
+  --color-muted-foreground:    var(--muted);
+  --color-border:              var(--rule);
+  --color-input:               var(--rule);
+  --color-ring:                var(--ink);
+  --color-card:                var(--paper);
+  --color-card-foreground:     var(--ink);
+
+  /* Named spacing scale (4px base) */
+  --spacing-hair: 4px;
+  --spacing-xs:   8px;
+  --spacing-sm:   12px;
+  --spacing-md:   16px;
+  --spacing-lg:   24px;
+  --spacing-xl:   32px;
+  --spacing-2xl:  48px;
+  --spacing-3xl:  64px;
+  --spacing-4xl:  96px;
+  --spacing-5xl:  128px;
 }
 
 :root {
-  --canvas: oklch(0.985 0 0);
-  --ink: oklch(0.18 0.01 270);
-  --accent: oklch(0.22 0.03 265);
-  --rule: oklch(0.18 0.01 270 / 0.08);
-  --muted: oklch(0.55 0.01 270);
-  --soft: oklch(0.96 0.005 270);
+  --paper:      #FAFAF6;
+  --paper-2:    #F2F1EC;
+  --ink:        #1A1A19;
+  --body-text:  #2B2A28;
+  --muted:      #76726B;
+  --rule:       #D9D5CC;
+  --rule-strong: #1A1A19;
 }
 
 @layer base {
   * {
-    border-color: var(--color-rule);
+    border-color: var(--rule);
+    box-sizing: border-box;
   }
   html {
-    font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
+    font-family: var(--font-serif);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
   body {
-    background-color: var(--color-canvas);
-    color: var(--color-ink);
+    background-color: var(--paper);
+    color: var(--ink);
   }
   ::selection {
-    background: oklch(0.9 0.01 270);
+    background-color: var(--rule);
   }
 }

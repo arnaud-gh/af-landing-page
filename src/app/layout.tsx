@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { JetBrains_Mono } from "next/font/google";
+import { Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const sourceSerif4 = Source_Serif_4({
+  variable: "--font-source-serif-4",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
@@ -35,12 +34,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${sourceSerif4.variable} ${jetbrainsMono.variable}`}
       style={
         {
-          "--font-sans": "var(--font-inter), ui-sans-serif, system-ui, sans-serif",
-          "--font-mono":
-            "var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace",
+          "--font-serif": "var(--font-source-serif-4), Georgia, serif",
+          "--font-sans":  "var(--font-source-serif-4), Georgia, serif",
+          "--font-mono":  "var(--font-jetbrains-mono), ui-monospace, Menlo, monospace",
         } as React.CSSProperties
       }
     >
