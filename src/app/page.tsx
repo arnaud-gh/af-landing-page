@@ -103,15 +103,16 @@ const cases = [
 ];
 
 type ToolItem = { name: string; icon: string };
-const toolkit: { label: string; items: ToolItem[] }[] = [
+const toolkit: { label: string; mobileLabel?: string; items: ToolItem[] }[] = [
   {
     label: "Education & Certifications",
+    mobileLabel: "Bckgrnd & Certifications",
     items: [
       { name: "Solvay", icon: "/SOLVAY.svg" },
       { name: "Le Wagon", icon: "/LEWAGON.svg" },
       { name: "IIBA", icon: "/IIBA.svg" },
       { name: "PRINCE2", icon: "/PRINCE2.svg" },
-      { name: "Scrum", icon: "/SCRUMINC.svg" },
+      { name: "SCRUM", icon: "/SCRUMINC.svg" },
     ],
   },
   {
@@ -150,11 +151,12 @@ const toolkit: { label: string; items: ToolItem[] }[] = [
   },
 ];
 
-function ToolGroup({ group }: { group: { label: string; items: ToolItem[] } }) {
+function ToolGroup({ group }: { group: { label: string; mobileLabel?: string; items: ToolItem[] } }) {
   return (
     <div>
       <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted block mb-4">
-        {group.label}
+        <span className="lg:hidden">{group.mobileLabel ?? group.label}</span>
+        <span className="hidden lg:inline">{group.label}</span>
       </span>
       <ul className="space-y-2">
         {group.items.map((item) => (
@@ -392,27 +394,18 @@ export default function Home() {
                       </span>
                       <p className="text-[13px] text-body leading-[1.55]">{c.situation}</p>
                     </div>
-                    <div className="px-6 py-5 lg:px-8 lg:py-6 border-t border-rule lg:border-t-0">
+                    <div className="px-6 py-5 lg:px-8 lg:py-6">
                       <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
                         Contribution
                       </span>
                       <p className="text-[13px] text-body leading-[1.55]">{c.action}</p>
                     </div>
-                    <div className="px-6 py-5 lg:px-8 lg:py-6 border-t border-rule lg:border-t-0">
+                    <div className="px-6 py-5 lg:px-8 lg:py-6">
                       <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
                         Outcome
                       </span>
                       <p className="text-[13px] text-body leading-[1.55]">{c.outcome}</p>
                     </div>
-                  </div>
-                  {/* Footer */}
-                  <div className="px-6 pb-6 lg:px-8 lg:pb-7">
-                    <button
-                      disabled
-                      className="font-mono text-[11px] uppercase tracking-[0.16em] border border-rule text-muted px-4 py-2 opacity-50 cursor-not-allowed"
-                    >
-                      Learn more (Coming soon)
-                    </button>
                   </div>
                 </article>
               ))}
