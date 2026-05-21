@@ -64,6 +64,7 @@
     font-family: var(--font-serif);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    font-optical-sizing: auto;
   }
   body {
     background-color: var(--paper);

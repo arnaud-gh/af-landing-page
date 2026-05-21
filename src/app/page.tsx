@@ -225,8 +225,9 @@ export default function Home() {
         {/* 01 Hero */}
         <section className="py-24 lg:py-36 border-b border-rule">
           <div className="max-w-7xl mx-auto px-6">
-            <h1 className="text-[clamp(34px,5vw,64px)] font-medium leading-[1.05] tracking-[-0.02em] text-balance mb-10">
-              I help enterprise IT teams turn complex transformation work into
+            <h1 className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.05] tracking-[-0.02em] mb-10">
+              I help enterprise IT teams turn<br />
+              complex transformation work into<br />
               clear processes, tools, and decisions.
             </h1>
             <p className="text-lg md:text-xl text-muted leading-relaxed max-w-[58ch] mb-12">

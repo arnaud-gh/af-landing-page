@@ -5,7 +5,8 @@ import "./globals.css";
 const sourceSerif4 = Source_Serif_4({
   variable: "--font-source-serif-4",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "variable",
+  axes: ["opsz"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
