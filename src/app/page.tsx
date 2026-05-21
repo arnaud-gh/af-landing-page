@@ -162,7 +162,7 @@ function ToolGroup({ group }: { group: { label: string; mobileLabel?: string; it
         {group.items.map((item) => (
           <li
             key={item.name}
-            className="group flex items-center gap-2.5 border border-rule px-3 py-2 bg-paper hover:bg-paper-2 hover:scale-105 transition-all duration-300 ease-out"
+            className="group flex items-center gap-2.5 px-3 py-2 bg-paper hover:bg-paper-2 hover:scale-105 transition-all duration-300 ease-out"
           >
             <span className="flex items-center justify-center h-6 w-6 shrink-0 overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -211,9 +211,6 @@ export default function Home() {
             </a>
           </nav>
           <div className="flex items-center gap-4">
-            <span className="font-mono text-[11px] text-muted hidden sm:inline">
-              EN / FR
-            </span>
             <a
               href="#contact"
               className="text-sm font-medium hover:text-muted transition-colors"
@@ -228,9 +225,6 @@ export default function Home() {
         {/* 01 Hero */}
         <section className="py-24 lg:py-36 border-b border-rule">
           <div className="max-w-7xl mx-auto px-6">
-            <span className="font-mono text-[11px] mb-10 block text-muted uppercase tracking-[0.18em]">
-              01 / Positioning
-            </span>
             <h1 className="text-[clamp(34px,5vw,64px)] font-medium leading-[1.05] tracking-[-0.02em] text-balance mb-10">
               I help enterprise IT teams turn complex transformation work into
               clear processes, tools, and decisions.
@@ -254,7 +248,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-16">
               <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
-                02 / What I do
+                ■ What I do
               </span>
               <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium text-balance leading-[1.12] tracking-[-0.015em] mt-4 max-w-[44ch]">
                 Four kinds of work, applied together across a transformation.
@@ -277,14 +271,6 @@ export default function Home() {
                     i % 2 === 0 ? "md:border-r border-rule" : "",
                   ].join(" ")}
                 >
-                  <div className="flex items-baseline justify-between">
-                    <span className="font-mono text-[11px] text-muted">
-                      {c.code}
-                    </span>
-                    <span className="font-mono text-[11px] text-muted">
-                      0{i + 1}
-                    </span>
-                  </div>
                   <div className="space-y-3">
                     <h3 className="text-xl font-medium tracking-tight">
                       {c.name}
@@ -316,7 +302,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-12 gap-12">
               <div className="lg:col-span-5">
                 <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
-                  03 / How I work
+                  ■ How I work
                 </span>
                 <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium mt-6 text-balance leading-[1.12] tracking-[-0.015em]">
                   Depth inside one complex environment.
@@ -338,11 +324,8 @@ export default function Home() {
               <div className="lg:col-span-7">
                 <div className="divide-y divide-rule">
                   {principles.map((p, i) => (
-                    <div key={p.title} className="py-8 grid grid-cols-12 gap-6">
-                      <span className="col-span-2 md:col-span-1 font-mono text-sm text-muted pt-1">
-                        0{i + 1}
-                      </span>
-                      <div className="col-span-10 md:col-span-11">
+                    <div key={p.title} className="py-8">
+                      <div>
                         <h4 className="font-medium mb-3 text-lg tracking-tight">
                           {p.title}
                         </h4>
@@ -363,7 +346,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-20">
               <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
-                04 / Selected Work
+                ■ Selected Work
               </span>
               <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium leading-[1.12] tracking-[-0.015em] text-balance mt-4 mb-3 max-w-[44ch]">
                 Selected examples from six years embedded in a large European
@@ -379,9 +362,6 @@ export default function Home() {
                 <article key={c.ref} className="border border-rule bg-paper">
                   {/* Header: ref + title */}
                   <div className="px-6 pt-6 pb-2 lg:px-8 lg:pt-7">
-                    <span className="font-mono text-[11px] text-muted block mb-2">
-                      {String(i + 1).padStart(2, "0")} / {c.ref}
-                    </span>
                     <h3 className="text-[17px] font-semibold tracking-[-0.01em] leading-snug">
                       {c.name}
                     </h3>
@@ -418,7 +398,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6">
             <div>
               <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
-                05 / Methods &amp; Toolkit
+                ■ Methods &amp; Toolkit
               </span>
               <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium mt-4 text-balance leading-[1.12] tracking-[-0.015em] max-w-[44ch]">
                 Credentials and toolset behind the work.
@@ -457,7 +437,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-12 gap-12">
               <div className="lg:col-span-4">
                 <span className="font-mono text-[11px] text-paper/55 uppercase tracking-[0.18em]">
-                  06 / Contact
+                  ■ Contact
                 </span>
               </div>
               <div className="lg:col-span-8">
@@ -528,7 +508,6 @@ export default function Home() {
             >
               LinkedIn
             </a>
-            <span>EN / FR</span>
           </nav>
         </div>
       </footer>
