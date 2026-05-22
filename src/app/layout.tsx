@@ -16,14 +16,19 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arnaud Fiora — Enterprise IT transformation support",
+  title: "Arnaud Fiora — Freelance Business Analyst, Belgium",
   description:
     "Freelance business analyst helping enterprise IT teams turn complex transformation work into clear processes, tools, and decisions.",
   openGraph: {
-    title: "Arnaud Fiora — Enterprise IT transformation support",
+    title: "Arnaud Fiora — Freelance Business Analyst, Belgium",
     description:
       "At the intersection of business analysis, governance, process design, visual modelling, and M365 tooling.",
     type: "website",
+  },
+  twitter: {
+    title: "Arnaud Fiora — Freelance Business Analyst, Belgium",
+    description:
+      "At the intersection of business analysis, governance, process design, visual modelling, and M365 tooling.",
   },
 };
 

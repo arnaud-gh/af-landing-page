@@ -225,9 +225,8 @@ export default function Home() {
         {/* 01 Hero */}
         <section className="py-24 lg:py-36 border-b border-rule">
           <div className="max-w-7xl mx-auto px-6">
-            <h1 className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.05] tracking-[-0.02em] mb-10">
-              I help enterprise IT teams turn<br />
-              complex transformation work into<br />
+            <h1 className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.05] tracking-[-0.02em] mb-10 lg:max-w-[28ch]">
+              I help enterprise IT teams turn complex transformation work into
               clear processes, tools, and decisions.
             </h1>
             <p className="text-lg md:text-xl text-muted leading-relaxed max-w-[58ch] mb-12">
@@ -241,6 +240,9 @@ export default function Home() {
               Get in touch about a mission
               <span aria-hidden>→</span>
             </a>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted mt-10">
+              Belgium &amp; Luxembourg — Available from 1 June 2026
+            </p>
           </div>
         </section>
 
@@ -480,7 +482,7 @@ export default function Home() {
                         className="transition-transform group-hover:translate-x-1"
                         aria-hidden
                       >
-                        ↗
+                        {'↗︎'}
                       </span>
                     </span>
                   </a>
