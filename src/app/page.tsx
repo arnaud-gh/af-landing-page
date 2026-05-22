@@ -338,14 +338,8 @@ export default function Home() {
                   <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-paper/55 block mb-3">
                     Get in touch
                   </span>
-                  <span className="text-lg font-medium inline-flex items-center gap-3">
+                  <span className="text-lg font-medium">
                     arnaud.fiora@gmail.com
-                    <span
-                      className="transition-transform group-hover:translate-x-1"
-                      aria-hidden
-                    >
-                      →
-                    </span>
                   </span>
                 </a>
                 <a
@@ -357,14 +351,8 @@ export default function Home() {
                   <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-paper/55 block mb-3">
                     LinkedIn
                   </span>
-                  <span className="text-lg font-medium inline-flex items-center gap-3">
+                  <span className="text-lg font-medium">
                     linkedin.com/in/arnaudfiora
-                    <span
-                      className="transition-transform group-hover:translate-x-1"
-                      aria-hidden
-                    >
-                      {'↗︎'}
-                    </span>
                   </span>
                 </a>
               </div>
