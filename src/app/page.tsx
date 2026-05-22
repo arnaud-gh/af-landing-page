@@ -277,7 +277,7 @@ export default function Home() {
                       src={tool.icon}
                       alt={tool.name}
                       loading="lazy"
-                      className="h-4 w-4 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300"
+                      className="h-4 w-4 object-contain sm:grayscale sm:opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300"
                     />
                     <span className="font-mono text-[11px] tracking-[0.04em] text-muted leading-tight">
                       {tool.name}
