@@ -1,4 +1,5 @@
 import { FlowSteps } from "@/components/FlowSteps";
+import { CaseCard } from "@/components/CaseCard";
 
 const capabilities = [
   {
@@ -74,7 +75,7 @@ const cases = [
     situation:
       "An enterprise IT environment needed a clearer way to guide initiatives from early idea to delivery and follow-up, while strengthening portfolio visibility across the entire lifecycle.",
     action:
-      "I helped translate the framework into a practical operating layer — phase-by-phase delivery guidance, PM-facing documentation, SharePoint tracking structures, Power Automate-supported review flows, and Power BI portfolio dashboards.",
+      "I helped translate the framework into a practical operating layer: phase-by-phase delivery guidance, PM-facing documentation, SharePoint tracking structures, Power Automate-supported review flows, and Power BI portfolio dashboards.",
     outcome:
       "The framework became more usable in day-to-day project delivery. Project managers gained clearer lifecycle guidance, leadership gained a more consistent portfolio view, and repetitive PM administration was reduced through automation.",
   },
@@ -124,7 +125,7 @@ export default function Home() {
             Arnaud Fiora{" "}
             <span className="text-muted">/ Business Analyst</span>
           </a>
-          <nav className="hidden md:flex items-center gap-8 font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
+          <nav className="hidden md:flex items-center gap-8 font-mono text-[11px] uppercase tracking-[0.16em] text-muted ml-auto">
             <a href="#work" className="hover:text-ink transition-colors">
               Work
             </a>
@@ -134,8 +135,10 @@ export default function Home() {
             <a href="#contact" className="hover:text-ink transition-colors">
               Contact
             </a>
+            <a href="#about" className="hover:text-ink transition-colors">
+              About
+            </a>
           </nav>
-          <div />
         </div>
       </header>
 
@@ -148,8 +151,8 @@ export default function Home() {
               clear processes, tools, and decisions.
             </h1>
             <p className="text-lg md:text-xl text-muted leading-relaxed max-w-[58ch] mb-12">
-              I work where Business Needs, Delivery Processes, Governance, and
-              Practical Tooling meet.
+              I work where business needs, delivery processes, governance, and
+              practical tooling meet.
             </p>
             <div className="flex flex-wrap items-center gap-4 mb-10">
               <a
@@ -182,7 +185,7 @@ export default function Home() {
               <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium text-balance leading-[1.12] tracking-[-0.015em] mt-4 max-w-[44ch]">
                 Four kinds of work, applied together across a transformation.
               </h2>
-              <p className="mt-4 text-muted max-w-[66ch]">
+              <p className="mt-4 text-muted max-w-[52rem]">
                 My role is to make complexity easier to understand, easier to
                 discuss, and easier to run. I help teams clarify what is
                 happening, structure the way forward, create artefacts people
@@ -229,57 +232,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 03 Selected Work */}
-        <section id="selected-work" className="py-24 border-b border-rule">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="mb-20">
-              <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
-                ■ Selected Work
-              </span>
-              <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium leading-[1.12] tracking-[-0.015em] text-balance mt-4 mb-3 max-w-[44ch]">
-                Selected work from my experience inside the European HQs of one
-                of the world&apos;s largest automotive manufacturers.
-              </h2>
-              <p className="font-mono text-[11px] text-muted uppercase tracking-[0.14em]">
-                Details are intentionally kept high-level for confidentiality.
-              </p>
-            </div>
-
-            <div className="space-y-8">
-              {cases.map((c) => (
-                <article key={c.ref} className="border border-rule bg-paper">
-                  <div className="px-6 pt-6 pb-2 lg:px-8 lg:pt-7">
-                    <h3 className="text-[17px] font-semibold tracking-[-0.01em] leading-snug">
-                      {c.name}
-                    </h3>
-                  </div>
-                  <div className="grid grid-cols-1 lg:grid-cols-3">
-                    <div className="px-6 py-5 lg:px-8 lg:py-6">
-                      <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
-                        Situation
-                      </span>
-                      <p className="text-[13px] text-body leading-[1.55]">{c.situation}</p>
-                    </div>
-                    <div className="px-6 py-5 lg:px-8 lg:py-6">
-                      <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
-                        Contribution
-                      </span>
-                      <p className="text-[13px] text-body leading-[1.55]">{c.action}</p>
-                    </div>
-                    <div className="px-6 py-5 lg:px-8 lg:py-6">
-                      <span className="text-[11px] font-mono uppercase text-muted mb-2 block tracking-[0.16em]">
-                        Outcome
-                      </span>
-                      <p className="text-[13px] text-body leading-[1.55]">{c.outcome}</p>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 04 How I work */}
+        {/* 03 How I work */}
         <section id="approach" className="py-24 bg-paper-2 border-b border-rule">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-12 gap-12">
@@ -299,7 +252,7 @@ export default function Home() {
                       <h4 className="font-medium mb-3 text-lg tracking-tight">
                         {p.title}
                       </h4>
-                      <p className="text-[15px] text-body text-pretty max-w-[64ch] leading-[1.55]">
+                      <p className="text-[15px] text-body text-pretty leading-[1.55]">
                         {p.body}
                       </p>
                     </div>
@@ -332,6 +285,30 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 04 Selected Work */}
+        <section id="selected-work" className="py-24 border-b border-rule">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-20">
+              <span className="font-mono text-[11px] text-muted uppercase tracking-[0.18em]">
+                ■ Selected Work
+              </span>
+              <h2 className="text-[clamp(26px,3.4vw,42px)] font-medium leading-[1.12] tracking-[-0.015em] text-balance mt-4 mb-3 max-w-[44ch]">
+                Selected work from my experience inside the European HQs of one
+                of the world&apos;s largest automotive manufacturers.
+              </h2>
+              <p className="font-mono text-[11px] text-muted uppercase tracking-[0.14em]">
+                Details are intentionally kept high-level for confidentiality.
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              {cases.map((c) => (
+                <CaseCard key={c.ref} c={c} />
+              ))}
             </div>
           </div>
         </section>
